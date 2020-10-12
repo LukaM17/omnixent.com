@@ -17,8 +17,9 @@
 
 <script lang="ts">
 import RightArrow from '@/assets/icons/RightArrow.vue'
+import Vue from 'vue'
 
-export default {
+export default Vue.extend({
   components: { RightArrow },
   data () {
     return {
@@ -47,7 +48,7 @@ export default {
       this.selectedCountry = newCountry.split(' ')[1]
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

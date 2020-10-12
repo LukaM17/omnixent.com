@@ -16,7 +16,9 @@
 </template>
 
 <script>
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     name: {
       type: String,
@@ -39,7 +41,7 @@ export default {
       default: '0 0 512 512'
     }
   }
-}
+})
 </script>
 
 <style lang="sass" scoped>

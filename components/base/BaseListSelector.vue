@@ -12,7 +12,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     width: {
       type: [Number, String],
@@ -47,7 +49,7 @@ export default {
       this.$emit('optionChange', this.selectedOption)
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

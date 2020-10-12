@@ -8,7 +8,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     width: {
       type: [Number, String],
@@ -37,7 +39,7 @@ export default {
       this.$emit('submit', this.value)
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
