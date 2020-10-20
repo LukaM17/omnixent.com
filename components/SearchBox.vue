@@ -1,16 +1,28 @@
 <template>
-  <div>
-    <BaseInputWithButton width="50" height="100" @submit="startSearch">
-      <BaseIcon width="41" height="21" view-box="0 0 41 21">
-        <RightArrow />
-      </BaseIcon>
-    </BaseInputWithButton>
-    <br>
-    <BaseTabSelector width="30" :tab-items="availableServices" @tabChange="changeService" />
-    <br>
-    <div class="selectors">
-      <BaseListSelector width="10" height="50" :options-list="supportedLanguages" @optionChange="changeLanguage" />
-      <BaseListSelector width="20" height="50" :options-list="supportedCountries" @optionChange="changeCountry" />
+  <div class="searchbox" :style="dimension">
+    <div class="row">
+      <BaseInputWithButton width="50" height="100" @submit="startSearch">
+        <BaseIcon width="41" height="21" view-box="0 0 41 21">
+          <RightArrow />
+        </BaseIcon>
+      </BaseInputWithButton>
+      <div class="row">
+        <div class="paese">
+          <BaseListSelector width-close="5" width-open="13" height="60" :options-list="supportedCountries" @optionChange="changeCountry" />
+          <p class="label">
+            paese
+          </p>
+        </div>
+        <div class="lingua">
+          <BaseListSelector width-close="10" width-open="10" height="60" :options-list="supportedLanguages" @optionChange="changeLanguage" />
+          <p class="label">
+            lingua
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <BaseTabSelector width="30" :tab-items="availableServices" @tabChange="changeService" />
     </div>
   </div>
 </template>
@@ -22,8 +34,19 @@ import { TranslateResult } from 'vue-i18n'
 
 export default Vue.extend({
   components: { RightArrow },
+  props: {
+    width: {
+      type: [Number, String],
+      default: 100
+    }
+  },
   data () {
     return {
+      // style
+      dimension: {
+        width: `${this.width}%`
+      },
+      // data
       query: '',
       availableServices: [
         {
@@ -109,3 +132,40 @@ export default Vue.extend({
 
 })
 </script>
+
+<style lang="scss" scoped>
+.searchbox {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+
+  .row {
+    margin: 1% 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .paese {
+      margin: 0 20px 0 0;
+    }
+
+    .paese,
+    .lingua {
+      margin-top: 20px;
+    }
+
+    .label {
+      height: 20px;
+      margin: 5px 0 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+  }
+
+}
+</style>
