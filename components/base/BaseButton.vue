@@ -58,4 +58,8 @@ button {
   background-color: $background;
   color: white;
 }
+.background-dark {
+  background-color: $background-dark;
+  color: white;
+}
 </style>
