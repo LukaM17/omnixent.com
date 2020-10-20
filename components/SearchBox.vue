@@ -48,7 +48,6 @@ export default Vue.extend({
         width: `${this.width}%`
       },
       // data
-      query: '',
       availableServices: [
         {
           value: 'google',
@@ -117,10 +116,9 @@ export default Vue.extend({
   },
   methods: {
     startSearch (query: string): void {
-      this.query = query
       if (query !== '') {
         // emit the search status
-        this.$emit('searchStatus', OmnixentClient.startSearch(this.query, this.selectedService, this.selectedLanguage, this.selectedCountry))
+        this.$emit('searchStatus', this.$omnixentClient.search(query, this.selectedService, this.selectedLanguage, this.selectedCountry))
       }
     },
     changeService (newService: string): void {
