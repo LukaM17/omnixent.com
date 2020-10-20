@@ -7,16 +7,16 @@
         </BaseIcon>
       </BaseInputWithButton>
       <div class="row">
-        <div class="paese">
+        <div class="country">
           <BaseListSelector width-close="5" width-open="13" height="60" :options-list="supportedCountries" @optionChange="changeCountry" />
           <p class="label">
-            paese
+            {{$t('country')}}
           </p>
         </div>
-        <div class="lingua">
+        <div class="language">
           <BaseListSelector width-close="10" width-open="10" height="60" :options-list="supportedLanguages" @optionChange="changeLanguage" />
           <p class="label">
-            lingua
+            {{$t('language')}}
           </p>
         </div>
       </div>
@@ -119,7 +119,7 @@ export default Vue.extend({
     startSearch (query: string): void {
       this.query = query
       if (query !== '') {
-        // emissione dello stato della ricerca
+        // emit the search status
         this.$emit('searchStatus', OmnixentClient.startSearch(this.query, this.selectedService, this.selectedLanguage, this.selectedCountry))
       }
     },
@@ -149,12 +149,12 @@ export default Vue.extend({
     align-items: center;
     justify-content: space-between;
 
-    .paese {
+    .country {
       margin: 0 20px 0 0;
     }
 
-    .paese,
-    .lingua {
+    .country,
+    .language {
       margin-top: 20px;
     }
 
