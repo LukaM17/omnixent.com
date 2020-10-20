@@ -117,7 +117,9 @@ export default Vue.extend({
   methods: {
     startSearch (query: string): void {
       this.query = query
-      this.$emit('searchStarted', this.query, this.selectedService, this.selectedLanguage, this.selectedCountry)
+      if (query !== '') {
+        this.$emit('searchStarted', this.query, this.selectedService, this.selectedLanguage, this.selectedCountry)
+      }
     },
     changeService (newService: string): void {
       this.selectedService = newService
