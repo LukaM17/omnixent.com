@@ -8,13 +8,19 @@
       :color="whichSelected === index ? 'secondary' : 'background'"
       @click="changeTab(index)"
     >
-      {{ item }}
+      {{ item.text }}
     </BaseButton>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+
+interface Item {
+  value: string,
+  icon: string,
+  text: string
+}
 
 export default Vue.extend({
   props: {
@@ -23,7 +29,7 @@ export default Vue.extend({
       required: true
     },
     tabItems: {
-      type: Array,
+      type: Array as () => Array<Item>,
       required: true
     }
   },
@@ -44,7 +50,7 @@ export default Vue.extend({
     changeTab (index: number): void {
       this.selectedTab = index
       // event emission when change the selected tab
-      this.$emit('tabChange', this.tabItems[index])
+      this.$emit('tabChange', this.tabItems[index].value)
     }
   }
 })

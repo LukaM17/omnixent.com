@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="selector" :style="dimension" @click="toggleOptions">
-      {{ selectedOption }}
+      {{ selectedOption.icon ? selectedOption.icon + selectedOption.text : selectedOption.text }}
       <div v-if="optionsVisibility" class="options-container">
         <div v-for="(item, index) in optionsList" :key="index" :style="dimension" class="option" @click="changeOption(index)">
-          {{ item }}
+          {{ item.icon ? item.icon + item.text : item.text }}
         </div>
       </div>
     </div>
@@ -13,6 +13,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
+interface Item {
+  value: string,
+  icon: string,
+  text: string
+}
 
 export default Vue.extend({
   props: {
@@ -25,7 +31,7 @@ export default Vue.extend({
       required: true
     },
     optionsList: {
-      type: Array,
+      type: Array as () => Array<Item>,
       required: true
     }
   },
@@ -46,7 +52,7 @@ export default Vue.extend({
     changeOption (index: number): void {
       this.selectedOption = this.optionsList[index]
       // new option emission
-      this.$emit('optionChange', this.selectedOption)
+      this.$emit('optionChange', this.selectedOption.value)
     }
   }
 })

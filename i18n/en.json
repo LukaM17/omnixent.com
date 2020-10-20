@@ -3,9 +3,14 @@
     "wipMessage": "Omnixent Frontend made with Nuxt.js (WIP)",
     "followUs": "Follow us on Github",
     "search": "Search",
-    "English": "English",
-    "Italian": "Italian",
+    "Google": "Google",
+    "Amazon": "Amazon",
+    "YouTube": "YouTube",
     "Italy": "Italy",
-    "UK": "United Kingdom",
-    "Google": "Google"
+    "Netherlands": "Netherlands",
+    "Cuba": "Cuba",
+    "Germany": "Germany",
+    "France": "France",
+    "English": "English",
+    "Italian": "Italian"
 }
