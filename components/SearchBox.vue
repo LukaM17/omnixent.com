@@ -31,6 +31,7 @@
 import Vue from 'vue'
 import RightArrow from '@/assets/icons/RightArrow.vue'
 import { TranslateResult } from 'vue-i18n'
+import OmnixentClient from '@/client/client'
 
 export default Vue.extend({
   components: { RightArrow },
@@ -118,7 +119,8 @@ export default Vue.extend({
     startSearch (query: string): void {
       this.query = query
       if (query !== '') {
-        this.$emit('searchStarted', this.query, this.selectedService, this.selectedLanguage, this.selectedCountry)
+        // emissione dello stato della ricerca
+        this.$emit('searchStatus', OmnixentClient.startSearch(this.query, this.selectedService, this.selectedLanguage, this.selectedCountry))
       }
     },
     changeService (newService: string): void {

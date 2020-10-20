@@ -1,16 +1,15 @@
 <template>
-  <SearchBox width="75" @searchStarted="search" />
+  <SearchBox width="75" @searchStatus="searchResult" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import OmnixentClient from '@/client/client'
-
 export default Vue.extend({
   methods: {
-    search (query: string, service: string, language: string, country: string) {
-      OmnixentClient.startSearch(query, service, language, country)
+    searchResult (status: Promise<any>): void {
+      status
         .then(res => console.log(res.data.result))
+        .catch(err => console.log(err))
     }
   }
 })
