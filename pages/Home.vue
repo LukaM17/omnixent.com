@@ -1,5 +1,5 @@
 <template>
-  <SearchBox @searchStarted="search" />
+  <SearchBox width="75" @searchStarted="search" />
 </template>
 
 <script lang="ts">
