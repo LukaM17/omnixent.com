@@ -44,8 +44,9 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="sass" scoped>
-svg
-   display: flex
-   flex-basis: content
+<style lang="scss" scoped>
+svg {
+  display: flex;
+  flex-basis: content;
+}
 </style>
