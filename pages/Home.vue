@@ -4,14 +4,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import OmnixentClient from '@/client/client'
 
 export default Vue.extend({
   methods: {
     search (query: string, service: string, language: string, country: string) {
-      console.log('query: ' + query)
-      console.log('service: ' + service)
-      console.log('language: ' + language)
-      console.log('country : ' + country)
+      OmnixentClient.startSearch(query, service, language, country)
+        .then(res => console.log(res.data.result))
     }
   }
 })
