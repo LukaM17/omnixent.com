@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row">
-      <BaseTabSelector width="30" :tab-items="availableServices" @tabChange="changeService" />
+      <BaseTabSelector width="30" :tab-items="availableServices" :background="false" @tabChange="changeService" />
     </div>
   </div>
 </template>
@@ -142,7 +142,7 @@ export default Vue.extend({
   grid-template-rows: auto auto;
 
   .row {
-    margin: 1% 0;
+    margin: 10px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
