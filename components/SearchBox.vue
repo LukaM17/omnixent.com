@@ -8,21 +8,21 @@
       </BaseInputWithButton>
       <div class="row">
         <div class="country">
-          <BaseListSelector width-close="5" width-open="13" height="60" :options-list="supportedCountries" @optionChange="changeCountry" />
+          <BaseListSelector v-model="selectedCountry" width-close="5" width-open="13" height="60" :options-list="supportedCountries" />
           <p class="label">
-            {{$t('country')}}
+            {{ $t('country') }}
           </p>
         </div>
         <div class="language">
-          <BaseListSelector width-close="10" width-open="10" height="60" :options-list="supportedLanguages" @optionChange="changeLanguage" />
+          <BaseListSelector v-model="selectedLanguage" width-close="10" width-open="10" height="60" :options-list="supportedLanguages" />
           <p class="label">
-            {{$t('language')}}
+            {{ $t('language') }}
           </p>
         </div>
       </div>
     </div>
     <div class="row">
-      <BaseTabSelector width="30" :tab-items="availableServices" :background="false" @tabChange="changeService" />
+      <BaseTabSelector v-model="selectedService" width="30" :tab-items="availableServices" :background="false" />
     </div>
   </div>
 </template>
@@ -31,7 +31,6 @@
 import Vue from 'vue'
 import RightArrow from '@/assets/icons/RightArrow.vue'
 import { TranslateResult } from 'vue-i18n'
-import OmnixentClient from '@/client/client'
 
 export default Vue.extend({
   components: { RightArrow },
@@ -120,15 +119,6 @@ export default Vue.extend({
         // emit the search status
         this.$emit('searchStatus', this.$omnixentClient.search(query, this.selectedService, this.selectedLanguage, this.selectedCountry))
       }
-    },
-    changeService (newService: string): void {
-      this.selectedService = newService
-    },
-    changeLanguage (newLang: string): void {
-      this.selectedLanguage = newLang
-    },
-    changeCountry (newCountry: string): void {
-      this.selectedCountry = newCountry
     }
   }
 

@@ -25,6 +25,10 @@ interface Item {
 
 export default Vue.extend({
   props: {
+    value: {
+      type: [Number, String],
+      required: true
+    },
     widthClose: {
       type: [Number, String],
       required: true
@@ -63,7 +67,7 @@ export default Vue.extend({
     changeOption (index: number): void {
       this.selectedOption = this.optionsList[index]
       // new option emission
-      this.$emit('optionChange', this.selectedOption.value)
+      this.$emit('input', this.selectedOption.value)
     }
   }
 })

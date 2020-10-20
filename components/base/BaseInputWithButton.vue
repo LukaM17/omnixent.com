@@ -1,6 +1,6 @@
 <template>
   <div class="input-container" :style="dimensions">
-    <input v-model="value" type="text" placeholder="placeholder">
+    <input ref="inputTerm" type="text" placeholder="placeholder" value="">
     <button @click="submit">
       <slot />
     </button>
@@ -30,13 +30,12 @@ export default Vue.extend({
       dimensions: {
         width: `${this.width}vw`,
         height: `${this.height}px`
-      },
-      value: ''
+      }
     }
   },
   methods: {
     submit (): void {
-      this.$emit('submit', this.value)
+      this.$emit('submit', (this.$refs.inputTerm as HTMLInputElement).value)
     }
   }
 })

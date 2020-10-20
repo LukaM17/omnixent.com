@@ -24,6 +24,10 @@ interface Item {
 
 export default Vue.extend({
   props: {
+    value: {
+      type: [String],
+      required: true
+    },
     width: {
       type: [Number, String],
       required: true
@@ -60,7 +64,7 @@ export default Vue.extend({
     changeTab (index: number): void {
       this.selectedTab = index
       // event emission when change the selected tab
-      this.$emit('tabChange', this.tabItems[index].value)
+      this.$emit('input', this.tabItems[index].value)
     }
   }
 })
