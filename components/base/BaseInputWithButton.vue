@@ -1,9 +1,9 @@
 <template>
-  <div class="input-container" :style="dimensions">
-    <input ref="inputTerm" type="text" placeholder="placeholder" value="">
-    <BaseButton @click="submit" width="1">
+  <div class="inputwithbtn" :style="dimensions">
+    <input class="inputwithbtn__input" ref="inputTerm" type="text" placeholder="placeholder" value="">
+    <o-button class="inputwithbtn__btn" @click="submit">
       <slot />
-    </BaseButton>
+    </o-button>
   </div>
 </template>
 
@@ -42,10 +42,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.input-container {
+.inputwithbtn{
   position: relative;
 
-  input {
+  &__input {
     width: 100%;
     height: 100%;
     border: 4px solid $primary;
@@ -63,7 +63,7 @@ export default Vue.extend({
     }
   }
 
-  button {
+  &__btn {
     position: absolute;
     right: 0px;
     top: 0px;

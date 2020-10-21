@@ -1,15 +1,16 @@
 <template>
-  <div :style="dimension" class="tab-selector" :class="{ background: background }">
-    <BaseButton
+  <div :style="dimension" class="tab-selector">
+    <o-button
       v-for="(item, index) in tabItems"
       :key="index"
-      width="9"
-      height="60"
-      :color="whichSelected === index ? 'secondary' : buttonColor"
+      size="large"
+      class="tab-selector__btn"
+      :inverted="whichSelected !== index"
+      invertedClass="tab-selector__btn--inverted"
       @click="changeTab(index)"
     >
       {{ item.text }}
-    </BaseButton>
+    </o-button>
   </div>
 </template>
 
@@ -80,9 +81,15 @@ export default Vue.extend({
   padding: 15px;
   box-sizing: content-box;
   border-radius: 25px;
+
+  &__btn {
+    background: $secondary;
+    color: $background-dark;
+    &--inverted {
+      background-color: $background-dark;
+      color: white;
+    }
+  }
 }
 
-.background {
-  background-color: $background-dark;
-}
 </style>

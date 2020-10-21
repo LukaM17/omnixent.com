@@ -37,6 +37,14 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    [
+      '@oruga-ui/oruga/nuxt',
+      {
+        button: {
+          override: true
+        }
+      }
+    ],
     '@nuxtjs/style-resources',
     [
       'nuxt-i18n',
@@ -54,7 +62,8 @@ export default {
 
   styleResources: {
     scss: [
-      '~/assets/scss/variables.scss'
+      '~/assets/scss/variables.scss',
+      '~/assets/scss/buttons.scss'
     ]
   },
 

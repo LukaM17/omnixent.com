@@ -19,6 +19,10 @@
             {{ $t('language') }}
           </p>
         </div>
+          <o-select placeholder="Select a name">
+            <option value="flint">Flint</option>
+            <option value="silver">Silver</option>
+          </o-select>
       </div>
     </div>
     <div class="row">
