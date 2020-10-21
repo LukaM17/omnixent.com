@@ -1,9 +1,9 @@
 <template>
   <div class="input-container" :style="dimensions">
     <input ref="inputTerm" type="text" placeholder="placeholder" value="">
-    <button @click="submit">
+    <BaseButton @click="submit" width="1">
       <slot />
-    </button>
+    </BaseButton>
   </div>
 </template>
 
