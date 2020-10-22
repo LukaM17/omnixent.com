@@ -5,7 +5,7 @@
       :key="index"
       size="large"
       class="tab-selector__btn"
-      :inverted="whichSelected !== index"
+      :inverted="selectedTab !== index"
       invertedClass="tab-selector__btn--inverted"
       @click="changeTab(index)"
     >
@@ -51,14 +51,6 @@ export default Vue.extend({
       },
       // data
       selectedTab: 0
-    }
-  },
-  computed: {
-    whichSelected (): Number {
-      return this.selectedTab
-    },
-    buttonColor  (): string {
-      return this.background ? 'background' : 'background-dark'
     }
   },
   methods: {
