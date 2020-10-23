@@ -1,5 +1,5 @@
 <template>
-  <div :style="dimension" class="tab-selector">
+  <div class="tab-selector">
     <o-button
       v-for="(item, index) in tabItems"
       :key="index"
@@ -29,27 +29,13 @@ export default Vue.extend({
       type: [String],
       required: true
     },
-    width: {
-      type: [Number, String],
-      required: true
-    },
     tabItems: {
       type: Array as () => Array<Item>,
       required: true
-    },
-    background: {
-      type: Boolean,
-      default: true
     }
   },
   data () {
     return {
-      // style
-      dimension: {
-        width: `${this.width}vw`,
-        backgroundColor: this.background ? '$background-dark' : 'transparent'
-      },
-      // data
       selectedTab: 0
     }
   },

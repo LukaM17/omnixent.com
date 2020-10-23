@@ -1,6 +1,6 @@
 <template>
-  <div class="inputwithbtn" :style="dimensions">
-    <input class="inputwithbtn__input" ref="inputTerm" type="text" placeholder="placeholder" value="">
+  <div class="inputwithbtn">
+    <o-input inputClass="inputwithbtn__input" ref="inputTerm" type="text" placeholder="placeholder" value="john@"></o-input>
     <o-button class="inputwithbtn__btn" @click="submit">
       <slot />
     </o-button>
@@ -12,14 +12,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    width: {
-      type: [Number, String],
-      required: true
-    },
-    height: {
-      type: [Number, String],
-      required: true
-    },
     placeholder: {
       type: String,
       default: 'placeholder'
@@ -27,10 +19,7 @@ export default Vue.extend({
   },
   data () {
     return {
-      dimensions: {
-        width: `${this.width}vw`,
-        height: `${this.height}px`
-      }
+
     }
   },
   methods: {
@@ -42,10 +31,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.inputwithbtn{
+.inputwithbtn {
   position: relative;
 
-  &__input {
+  ::v-deep &__input {
     width: 100%;
     height: 100%;
     border: 4px solid $primary;
@@ -63,7 +52,7 @@ export default Vue.extend({
     }
   }
 
-  &__btn {
+  ::v-deep &__btn {
     position: absolute;
     right: 0px;
     top: 0px;
