@@ -1,7 +1,7 @@
 <template>
   <div class="searchbox" :style="dimension">
     <div class="row">
-      <BaseInputWithButton width="50" height="100" @submit="startSearch">
+      <BaseInputWithButton width="50" height="100" @submit="startSearch" placeholder="Search">
         <BaseIcon width="41" height="21" view-box="0 0 41 21">
           <RightArrow />
         </BaseIcon>

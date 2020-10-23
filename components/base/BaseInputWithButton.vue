@@ -1,6 +1,6 @@
 <template>
   <div class="inputwithbtn">
-    <o-input inputClass="inputwithbtn__input" ref="inputTerm" type="text" placeholder="placeholder" value="john@"></o-input>
+    <o-input inputClass="inputwithbtn__input" ref="inputTerm" type="text" :placeholder="placeholder"></o-input>
     <o-button class="inputwithbtn__btn" @click="submit">
       <slot />
     </o-button>
