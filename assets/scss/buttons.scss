@@ -7,7 +7,6 @@ button {
   background-color: $primary;
   cursor: pointer;
   transition: all 100ms ease-in;
-  padding: var(--oruga-button-padding,calc(.375em - 1px) .75em);
   font-weight: var(--oruga-button-font-weight, 400);
   line-height: var(--oruga-button-line-height, 1.5);
   font-size: var(--oruga-button-font-size-large, 1.5rem);

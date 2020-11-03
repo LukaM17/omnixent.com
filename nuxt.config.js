@@ -63,7 +63,9 @@ export default {
 
   styleResources: {
     scss: [
+      'flexboxgrid/dist/flexboxgrid.min.css',
       '~/assets/scss/variables.scss',
+      '~/assets/scss/globals.scss',
       '@oruga-ui/oruga/src/scss/oruga-lite.scss',
       '~/assets/scss/buttons.scss',
       '~/assets/scss/dropdown.scss'

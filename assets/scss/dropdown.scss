@@ -8,13 +8,12 @@
   font-weight: 600;
   color: white;
   appearance: none;
-  min-width: 13rem;
 
   .o-dropdown-menu {
     background-color: $background-dark;
-    width: 100%;
     border-radius: 15px;
     z-index: 100;
+    min-width: 13rem;
 
     .o-dropdown-item {
       font-size: 20;

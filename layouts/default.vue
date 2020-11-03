@@ -38,9 +38,6 @@ body {
 .main-container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  max-width: 1080px;
 }
 </style>

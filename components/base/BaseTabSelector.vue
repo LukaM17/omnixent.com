@@ -56,13 +56,13 @@ export default Vue.extend({
   align-items: center;
   flex-wrap: wrap;
   background-color: transparent;
-  padding: 15px;
   box-sizing: content-box;
   border-radius: 25px;
 
   &__btn {
     background: $secondary;
     color: $background-dark;
+    padding: var(--oruga-button-padding,calc(.375em - 1px) .75em);
     &--inverted {
       background-color: $background-dark;
       color: white;

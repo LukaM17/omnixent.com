@@ -1,5 +1,5 @@
 <template>
-  <SearchBox width="75" @searchStatus="searchResult" />
+  <SearchBox @searchStatus="searchResult" />
 </template>
 
 <script lang="ts">
@@ -14,11 +14,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.selectors {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-</style>

@@ -1,28 +1,38 @@
 <template>
-  <div class="searchbox" :style="dimension">
-    <div class="row">
-      <BaseInputWithButton width="50" height="100" @submit="startSearch" placeholder="Search">
-        <BaseIcon width="41" height="21" view-box="0 0 41 21">
-          <RightArrow />
-        </BaseIcon>
-      </BaseInputWithButton>
-      <div class="row">
-        <div class="country">
-          <BaseListSelector v-model="selectedCountry" width-close="5" width-open="13" height="60" :options-list="supportedCountries" />
-          <p class="label">
-            {{ $t('country') }}
-          </p>
-        </div>
-        <div class="language">
-          <BaseListSelector v-model="selectedLanguage" width-close="10" width-open="10" height="60" :options-list="supportedLanguages" />
-          <p class="label">
-            {{ $t('language') }}
-          </p>
+  <div class="searchbox">
+    <div class="row row-center">
+      <div class="col-xs-12 col-lg-8">
+        <BaseInputWithButton @submit="startSearch" placeholder="Search">
+          <BaseIcon width="41" height="21" view-box="0 0 41 21">
+            <RightArrow />
+          </BaseIcon>
+        </BaseInputWithButton>
+      </div>
+      <div class="col-xs-12 col-lg-4">
+        <div class="row row-center list-selectors-wrapper">
+          <div class="col-xs-6 col-lg-6">
+            <div class="box">
+              <BaseListSelector v-model="selectedCountry" :options-list="supportedCountries" />
+              <p class="searchbox__label">
+                {{ $t('country') }}
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-6 col-lg-6">
+            <div class="box">
+              <BaseListSelector v-model="selectedLanguage" :options-list="supportedLanguages" />
+              <p class="searchbox__label">
+                {{ $t('language') }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <BaseTabSelector v-model="selectedService" width="30" :tab-items="availableServices" :background="false" />
+    <div class="row tab-selector-wrapper">
+      <div class="col-xs-12 col-lg-5">
+        <BaseTabSelector v-model="selectedService" :tab-items="availableServices" :background="false" />
+      </div>
     </div>
   </div>
 </template>
@@ -42,10 +52,6 @@ export default Vue.extend({
   },
   data () {
     return {
-      // style
-      dimension: {
-        width: `${this.width}%`
-      },
       // data
       availableServices: [
         {
@@ -126,37 +132,32 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.tab-selector-wrapper {
+  padding-top: 2rem;
+}
+.list-selectors-wrapper {
+  @media screen and (min-width: $desktop-breakpoint) {
+    margin-left: 2rem;
+  }
+  @media screen and (max-width: $desktop-breakpoint) {
+    margin-top: 2rem;
+  }
+}
 .searchbox {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
+  width: 100%;
 
-  .row {
-    margin: 10px 0 0 0;
+  &__label {
+    height: 20px;
+    margin: 5px 0 0 0;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-
-    .country {
-      margin: 0 20px 0 0;
-    }
-
-    .country,
-    .language {
-      margin-top: 20px;
-    }
-
-    .label {
-      height: 20px;
-      margin: 5px 0 0 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
   }
 
 }

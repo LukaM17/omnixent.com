@@ -17,6 +17,7 @@
     "@oruga-ui/oruga": "^0.2.2",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "flexboxgrid": "^6.3.1",
     "nuxt": "^2.14.5",
     "nuxt-i18n": "^6.15.1"
   },
