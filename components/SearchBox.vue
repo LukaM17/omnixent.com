@@ -38,11 +38,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import RightArrow from '@/assets/icons/RightArrow.vue'
 import { TranslateResult } from 'vue-i18n'
 
 export default Vue.extend({
-  components: { RightArrow },
+  components: {},
   props: {
     width: {
       type: [Number, String],
