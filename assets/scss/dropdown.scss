@@ -9,6 +9,11 @@
   color: white;
   appearance: none;
 
+  .o-dropdown-background {
+    background: black;
+    opacity: 0.85;
+  }
+
   .o-dropdown-menu {
     background-color: $background-dark;
     border-radius: 15px;
