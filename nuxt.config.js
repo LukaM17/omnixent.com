@@ -63,8 +63,11 @@ export default {
 
   styleResources: {
     scss: [
-      'flexboxgrid/dist/flexboxgrid.min.css',
       '~/assets/scss/variables.scss',
+      '@fortawesome/fontawesome-free/scss/fontawesome.scss',
+      '@fortawesome/fontawesome-free/scss/solid.scss',
+      '@fortawesome/fontawesome-free/scss/brands.scss',
+      'flexboxgrid/dist/flexboxgrid.min.css',
       '~/assets/scss/globals.scss',
       '@oruga-ui/oruga/src/scss/oruga-lite.scss',
       '~/assets/scss/buttons.scss',
@@ -74,5 +77,6 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+
   }
 }

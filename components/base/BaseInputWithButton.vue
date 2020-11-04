@@ -67,6 +67,8 @@ export default Vue.extend({
     align-items: center;
     transition: all 200ms linear;
     z-index: 1;
+    font-size: 2.5rem;
+    font-weight: 100;
     &:hover {
       background-color: $primary-dark;
     }

@@ -9,7 +9,7 @@
       invertedClass="tab-selector__btn--inverted"
       @click="changeTab(index)"
     >
-      {{ item.text }}
+      <span><i :class="[item.iconFamily, item.icon]" class="tab-selector__icon-label"></i><span class="hide-on-mobile">{{ item.text }}</span></span>
     </o-button>
   </div>
 </template>
@@ -20,6 +20,7 @@ import Vue from 'vue'
 interface Item {
   value: string,
   icon: string,
+  iconFamily: string,
   text: string
 }
 
@@ -59,6 +60,10 @@ export default Vue.extend({
   box-sizing: content-box;
   border-radius: 25px;
 
+  @media screen and (max-width: $desktop-breakpoint) {
+    justify-content: space-evenly;
+  }
+
   &__btn {
     background: $secondary;
     color: $background-dark;
@@ -66,6 +71,13 @@ export default Vue.extend({
     &--inverted {
       background-color: $background-dark;
       color: white;
+    }
+  }
+
+  &__icon-label {
+    margin-right: 0.5rem;
+    @media screen and (max-width: $mobile-breakpoint) {
+      margin-left: 0.5rem;
     }
   }
 }

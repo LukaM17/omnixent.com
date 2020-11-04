@@ -39,5 +39,9 @@ body {
   margin: 0 auto;
   min-height: 100vh;
   max-width: 1080px;
+  @media screen and (max-width: $tablet-breakpoint) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 </style>

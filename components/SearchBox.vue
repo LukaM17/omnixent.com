@@ -2,10 +2,9 @@
   <div class="searchbox">
     <div class="row row-center">
       <div class="col-xs-12 col-lg-8">
-        <BaseInputWithButton @submit="startSearch" placeholder="Search">
-          <BaseIcon width="41" height="21" view-box="0 0 41 21">
-            <RightArrow />
-          </BaseIcon>
+        <BaseInputWithButton @submit="startSearch" :placeholder="$t('searchExample')">
+          <i class="fas fa-angle-right hide-on-mobile"></i>
+          <p class="show-on-mobile">{{ $t('search') }}</p>
         </BaseInputWithButton>
       </div>
       <div class="col-xs-12 col-lg-4">
@@ -30,7 +29,7 @@
       </div>
     </div>
     <div class="row tab-selector-wrapper">
-      <div class="col-xs-12 col-lg-5">
+      <div class="col-xs-12 col-lg-6">
         <BaseTabSelector v-model="selectedService" :tab-items="availableServices" :background="false" />
       </div>
     </div>
@@ -56,15 +55,21 @@ export default Vue.extend({
       availableServices: [
         {
           value: 'google',
-          text: this.$t('Google') as TranslateResult
+          text: this.$t('Google') as TranslateResult,
+          iconFamily: 'fab',
+          icon: 'fa-google'
         },
         {
           value: 'youtube',
-          text: this.$t('YouTube') as TranslateResult
+          text: this.$t('YouTube') as TranslateResult,
+          iconFamily: 'fab',
+          icon: 'fa-youtube'
         },
         {
           value: 'amazon',
-          text: this.$t('Amazon') as TranslateResult
+          text: this.$t('Amazon') as TranslateResult,
+          iconFamily: 'fab',
+          icon: 'fa-amazon'
         }
       ],
       selectedService: 'google',
