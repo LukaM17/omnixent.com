@@ -85,32 +85,37 @@ export default Vue.extend({
       selectedLanguage: 'it',
       supportedCountries: [
         {
-          value: 'italy',
+          value: 'it',
           icon: '🇮🇹',
           text: this.$t('Italy') as TranslateResult
         },
         {
-          value: 'netherlands',
-          icon: '🇳🇱',
-          text: this.$t('Netherlands') as TranslateResult
+          value: 'us',
+          icon: '🇺🇸',
+          text: this.$t('United States') as TranslateResult
         },
         {
-          value: 'cuba',
-          icon: '🇨🇺',
-          text: this.$t('Cuba') as TranslateResult
+          value: 'uk',
+          icon: '🇬🇧',
+          text: this.$t('United Kingdom') as TranslateResult
         },
         {
-          value: 'germany',
+          value: 'de',
           icon: '🇩🇪',
           text: this.$t('Germany') as TranslateResult
         },
         {
-          value: 'france',
+          value: 'fr',
           icon: '🇫🇷',
           text: this.$t('France') as TranslateResult
+        },
+        {
+          value: 'at',
+          icon: '🇦🇹',
+          text: this.$t('Austria') as TranslateResult
         }
       ],
-      selectedCountry: 'italy',
+      selectedCountry: 'us',
       languageOptions: [
         {
           value: 'en',
