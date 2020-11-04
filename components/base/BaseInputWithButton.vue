@@ -24,7 +24,7 @@ export default Vue.extend({
   },
   methods: {
     submit (): void {
-      this.$emit('submit', (this.$refs.inputTerm as HTMLInputElement).value)
+      this.$emit('submit', ((this.$refs.inputTerm as Vue).$refs.input as HTMLInputElement).value)
     }
   }
 })
