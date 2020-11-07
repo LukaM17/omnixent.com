@@ -1,5 +1,7 @@
 <template>
-  <SearchBox @searchStatus="searchResult" />
+  <div style="margin-top: 10rem;">
+    <SearchBox @searchStatus="searchResult" />
+  </div>
 </template>
 
 <script lang="ts">
