@@ -1,7 +1,7 @@
 <template>
   <div class="inputwithbtn">
     <o-input inputClass="inputwithbtn__input" ref="inputTerm" type="text" :placeholder="placeholder"></o-input>
-    <o-button class="inputwithbtn__btn" @click="submit">
+    <o-button class="inputwithbtn__btn" @click="submit" @mouseover.self="onButtonHover()" @mouseleave.self="onButtonLeave()">
       <slot />
     </o-button>
   </div>
@@ -23,6 +23,14 @@ export default Vue.extend({
     }
   },
   methods: {
+    onButtonLeave (): void {
+      console.log(((this.$refs.inputTerm as Vue).$refs.input as HTMLElement));
+      ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.remove('inputwithbtn__input--highlight')
+    },
+    onButtonHover (): void {
+      console.log(((this.$refs.inputTerm as Vue).$refs.input as HTMLElement));
+      ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.add('inputwithbtn__input--highlight')
+    },
     submit (): void {
       this.$emit('submit', ((this.$refs.inputTerm as Vue).$refs.input as HTMLInputElement).value)
     }
@@ -40,6 +48,7 @@ export default Vue.extend({
     background-color: $background;
     font-size: 40px;
     color: #FFFFFF;
+    transition: all 200ms linear;
     z-index: 2;
     &::placeholder {
       color: #FFFFFF50;
@@ -47,6 +56,7 @@ export default Vue.extend({
     &:focus-within {
       outline: none;
     }
+
     @media screen and (max-width: $mobile-breakpoint) {
       border: none;
       border-bottom: 4px solid $primary;
@@ -56,6 +66,11 @@ export default Vue.extend({
       padding: 1.2rem;
       border: 4px solid $primary;
       border-radius: 20px;
+      &--highlight {
+        padding: 1.2rem;
+        border-radius: 20px;
+        border: 4px solid $primary-dark;
+      }
     }
   }
 

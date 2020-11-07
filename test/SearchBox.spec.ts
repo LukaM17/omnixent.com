@@ -36,6 +36,6 @@ describe('SearchBox', () => {
     const submitComponent = wrapper.findComponent(BaseInputWithButton)
     submitComponent.vm.$emit('submit', 'Java')
     expect(wrapper.emitted('searchStatus')).toHaveLength(1)
-    expect(mockSearch.mock.calls[0]).toEqual(['Java', 'google', 'it', 'italy'])
+    expect(mockSearch.mock.calls[0]).toEqual(['Java', 'google', 'it', 'us'])
   })
 })
