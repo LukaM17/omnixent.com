@@ -68,6 +68,9 @@ export default Vue.extend({
     background: $secondary;
     color: $background-dark;
     padding: var(--oruga-button-padding,calc(.375em - 1px) .75em);
+    @media screen and (min-width: $mobile-breakpoint) {
+      width: 8rem;
+    }
     &--inverted {
       background-color: $background-dark;
       color: white;
