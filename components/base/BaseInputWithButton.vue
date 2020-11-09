@@ -5,15 +5,17 @@
       inputClass="inputwithbtn__input"
       ref="inputTerm"
       type="text"
+      :class="{'inputwithbtn__input--highlight': isReadyToSend && !this.isValueEmpty }"
       :placeholder="placeholder"
       @keyup.native.enter="submit"></o-input>
     <o-button
-      :disabled="isEmpty"
+      :disabled="isValueEmpty"
       disabledClass="inputwithbtn__btn--disabled"
       class="inputwithbtn__btn"
+      :class="{'inputwithbtn__btn--highlight': isReadyToSend && !this.isValueEmpty}"
       @click="submit"
-      @mouseover.self="onButtonHover"
-      @mouseleave.self="onButtonLeave">
+      @mouseover.self="isReadyToSend = true"
+      @mouseleave.self="isReadyToSend = false">
       <slot />
     </o-button>
   </div>
@@ -31,29 +33,18 @@ export default Vue.extend({
   },
   data () {
     return {
+      isReadyToSend: false,
       value: ''
     }
   },
   computed: {
-    isEmpty (): boolean {
-      return this.value === ''
+    isValueEmpty (): boolean {
+      return this.value.length === 0 || !this.value.trim()
     }
   },
   methods: {
-    onButtonLeave (e: Event): void {
-      ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.remove('inputwithbtn__input--highlight')
-      return (e.target as HTMLElement).classList.remove('inputwithbtn__btn--highlight')
-    },
-    onButtonHover (e: Event): void {
-      if (this.isEmpty) {
-        return
-      }
-      // e.target.classList.add('inputwithbtn__btn--highlight')
-      ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.add('inputwithbtn__input--highlight')
-      return (e.target as HTMLElement).classList.add('inputwithbtn__btn--highlight')
-    },
     submit (): void {
-      if (!this.isEmpty) {
+      if (!this.isValueEmpty) {
         this.$emit('submit', this.value)
       }
     }
@@ -74,7 +65,7 @@ export default Vue.extend({
     transition: all 200ms linear;
     z-index: 2;
     &::placeholder {
-      color: #FFFFFF50;
+      color: $placeholder-color;
     }
     &:focus-within {
       outline: none;
@@ -90,7 +81,7 @@ export default Vue.extend({
       border: 4px solid $primary;
       border-radius: 20px;
       padding-right: 120px;
-      &--highlight {
+      &--highlight > input {
         padding: 1.2rem;
         border-radius: 20px;
         border: 4px solid $primary-dark;
