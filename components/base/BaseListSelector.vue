@@ -12,10 +12,10 @@
       </template>
     </o-button>
     <o-dropdown-item v-for="(menu, index) in optionsList" :key="index" :value="menu" aria-role="listitem" class="listselector__menuitem">
-          <span v-if="menu.icon" class="listselector__menuitem__icon">
-            {{ menu.icon }}
-          </span>
-          <span class="listselector__menuitem__text">{{menu.text}}</span>
+      <span v-if="menu.icon" class="listselector__menuitem__icon">
+        {{ menu.icon }}
+      </span>
+      <span class="listselector__menuitem__text">{{menu.text}}</span>
     </o-dropdown-item>
   </o-dropdown>
 </template>
