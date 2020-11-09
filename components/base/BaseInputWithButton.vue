@@ -7,7 +7,13 @@
       type="text"
       :placeholder="placeholder"
       @keyup.native.enter="submit"></o-input>
-    <o-button :disabled="isDisabled" class="inputwithbtn__btn" @click="submit" @mouseover.self="onButtonHover()" @mouseleave.self="onButtonLeave()">
+    <o-button
+      :disabled="isEmpty"
+      disabledClass="inputwithbtn__btn--disabled"
+      class="inputwithbtn__btn"
+      @click="submit"
+      @mouseover.self="onButtonHover"
+      @mouseleave.self="onButtonLeave">
       <slot />
     </o-button>
   </div>
@@ -29,19 +35,25 @@ export default Vue.extend({
     }
   },
   computed: {
-    isDisabled (): boolean {
+    isEmpty (): boolean {
       return this.value === ''
     }
   },
   methods: {
-    onButtonLeave (): void {
+    onButtonLeave (e: Event): void {
       ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.remove('inputwithbtn__input--highlight')
+      return (e.target as HTMLElement).classList.remove('inputwithbtn__btn--highlight')
     },
-    onButtonHover (): void {
+    onButtonHover (e: Event): void {
+      if (this.isEmpty) {
+        return
+      }
+      // e.target.classList.add('inputwithbtn__btn--highlight')
       ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.add('inputwithbtn__input--highlight')
+      return (e.target as HTMLElement).classList.add('inputwithbtn__btn--highlight')
     },
     submit (): void {
-      if (!this.isDisabled) {
+      if (!this.isEmpty) {
         this.$emit('submit', this.value)
       }
     }
@@ -77,6 +89,7 @@ export default Vue.extend({
       padding: 1.2rem;
       border: 4px solid $primary;
       border-radius: 20px;
+      padding-right: 120px;
       &--highlight {
         padding: 1.2rem;
         border-radius: 20px;
@@ -95,8 +108,11 @@ export default Vue.extend({
     z-index: 1;
     font-size: 2.5rem;
     font-weight: 100;
-    &:hover {
+    &--highlight {
       background-color: $primary-dark;
+    }
+    &--disabled {
+      color: $disabled-color;
     }
     @media screen and (max-width: $mobile-breakpoint) {
       width: 100%;
@@ -108,7 +124,6 @@ export default Vue.extend({
       right: 0px;
       top: 0px;
       bottom: 0px;
-      width: 13%;
       min-width: 120px;
       border-radius: 0 20px 20px 0;
     }
