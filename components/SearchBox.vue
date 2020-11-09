@@ -74,21 +74,24 @@ export default Vue.extend({
       selectedService: 'google',
       supportedLanguages: [
         {
+          value: 'en',
+          text: this.$t('English') as TranslateResult
+        },
+        {
           value: 'it',
           text: this.$t('Italian') as TranslateResult
         },
         {
-          value: 'en',
-          text: this.$t('English') as TranslateResult
+          value: 'fr',
+          text: this.$t('French') as TranslateResult
+        },
+        {
+          value: 'de',
+          text: this.$t('German') as TranslateResult
         }
       ],
-      selectedLanguage: 'it',
+      selectedLanguage: 'en',
       supportedCountries: [
-        {
-          value: 'it',
-          icon: '🇮🇹',
-          text: this.$t('Italy') as TranslateResult
-        },
         {
           value: 'us',
           icon: '🇺🇸',
@@ -98,6 +101,11 @@ export default Vue.extend({
           value: 'uk',
           icon: '🇬🇧',
           text: this.$t('United Kingdom') as TranslateResult
+        },
+        {
+          value: 'it',
+          icon: '🇮🇹',
+          text: this.$t('Italy') as TranslateResult
         },
         {
           value: 'de',
@@ -115,17 +123,7 @@ export default Vue.extend({
           text: this.$t('Austria') as TranslateResult
         }
       ],
-      selectedCountry: 'us',
-      languageOptions: [
-        {
-          value: 'en',
-          text: this.$t('English') as TranslateResult
-        },
-        {
-          value: 'it',
-          text: this.$t('Italian') as TranslateResult
-        }
-      ]
+      selectedCountry: 'us'
     }
   },
   methods: {
