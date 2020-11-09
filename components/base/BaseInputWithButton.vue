@@ -1,7 +1,13 @@
 <template>
   <div class="inputwithbtn">
-    <o-input inputClass="inputwithbtn__input" ref="inputTerm" type="text" :placeholder="placeholder"></o-input>
-    <o-button class="inputwithbtn__btn" @click="submit" @mouseover.self="onButtonHover()" @mouseleave.self="onButtonLeave()">
+    <o-input
+      v-model="value"
+      inputClass="inputwithbtn__input"
+      ref="inputTerm"
+      type="text"
+      :placeholder="placeholder"
+      @keyup.native.enter="submit"></o-input>
+    <o-button :disabled="isDisabled" class="inputwithbtn__btn" @click="submit" @mouseover.self="onButtonHover()" @mouseleave.self="onButtonLeave()">
       <slot />
     </o-button>
   </div>
@@ -19,20 +25,25 @@ export default Vue.extend({
   },
   data () {
     return {
-
+      value: ''
+    }
+  },
+  computed: {
+    isDisabled (): boolean {
+      return this.value === ''
     }
   },
   methods: {
     onButtonLeave (): void {
-      console.log(((this.$refs.inputTerm as Vue).$refs.input as HTMLElement));
       ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.remove('inputwithbtn__input--highlight')
     },
     onButtonHover (): void {
-      console.log(((this.$refs.inputTerm as Vue).$refs.input as HTMLElement));
       ((this.$refs.inputTerm as Vue).$refs.input as HTMLElement).classList.add('inputwithbtn__input--highlight')
     },
     submit (): void {
-      this.$emit('submit', ((this.$refs.inputTerm as Vue).$refs.input as HTMLInputElement).value)
+      if (!this.isDisabled) {
+        this.$emit('submit', this.value)
+      }
     }
   }
 })
