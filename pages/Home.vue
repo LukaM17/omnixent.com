@@ -41,7 +41,7 @@ h1 {
 h2 {
   color: white;
   font-weight: 700;
-  font-size: 5.5vw;
+  font-size: 5vw;
 }
 .main-container {
   margin: 0 auto;
