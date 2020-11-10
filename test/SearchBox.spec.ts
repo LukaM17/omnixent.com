@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import SearchBox from '@/components/SearchBox.vue'
-import BaseInputWithButton from '@/components/base/BaseInputWithButton.vue'
+import InputWithButton from '@/components/base/InputWithButton.vue'
 
 const $t = () => {}
 const mockSearch = jest.fn()
@@ -22,7 +22,7 @@ describe('SearchBox', () => {
         $omnixentClient
       }
     })
-    const submitComponent = wrapper.findComponent(BaseInputWithButton)
+    const submitComponent = wrapper.findComponent(InputWithButton)
     submitComponent.vm.$emit('submit', '')
     expect(wrapper.emitted('searchStatus')).toBeFalsy()
   })
@@ -33,7 +33,7 @@ describe('SearchBox', () => {
         $omnixentClient
       }
     })
-    const submitComponent = wrapper.findComponent(BaseInputWithButton)
+    const submitComponent = wrapper.findComponent(InputWithButton)
     submitComponent.vm.$emit('submit', 'Java')
     expect(wrapper.emitted('searchStatus')).toHaveLength(1)
     expect(mockSearch.mock.calls[0]).toEqual(['Java', 'google', 'en', 'us'])

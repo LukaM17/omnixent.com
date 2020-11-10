@@ -1,15 +1,15 @@
 import Vue from 'vue'
-import BaseIcon from '@/components/base/BaseIcon.vue'
-import BaseInputWithButton from '@/components/base/BaseInputWithButton.vue'
-import BaseListSelector from '@/components/base/BaseListSelector.vue'
-import BaseTabSelector from '@/components/base/BaseTabSelector.vue'
+import Icon from '@/components/base/Icon.vue'
+import InputWithButton from '@/components/base/InputWithButton.vue'
+import ListSelector from '@/components/base/ListSelector.vue'
+import TabSelector from '@/components/base/TabSelector.vue'
 import OmnixentClient from '@/client/client'
 import { Button, Dropdown, Input, Config } from '@oruga-ui/oruga'
 
-Vue.component('BaseIcon', BaseIcon)
-Vue.component('BaseInputWithButton', BaseInputWithButton)
-Vue.component('BaseListSelector', BaseListSelector)
-Vue.component('BaseTabSelector', BaseTabSelector)
+Vue.component('Icon', Icon)
+Vue.component('InputWithButton', InputWithButton)
+Vue.component('ListSelector', ListSelector)
+Vue.component('TabSelector', TabSelector)
 
 Vue.prototype.$omnixentClient = new OmnixentClient()
 
