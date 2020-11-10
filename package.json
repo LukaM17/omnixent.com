@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
+    "build": "nuxt-ts build --spa",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
@@ -13,9 +13,12 @@
     "ci": "npm run lint && npm run test"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "@nuxt/typescript-runtime": "^2.0.0",
+    "@oruga-ui/oruga": "^0.2.2",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "flexboxgrid": "^6.3.1",
     "nuxt": "^2.14.5",
     "nuxt-i18n": "^6.15.1"
   },
@@ -25,6 +28,7 @@
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@types/jest": "^26.0.14",
     "@types/mocha": "^8.0.3",
     "@vue/test-utils": "^1.1.0",
@@ -33,7 +37,10 @@
     "babel-jest": "^26.3.0",
     "eslint": "^7.8.1",
     "eslint-plugin-nuxt": "^1.0.0",
+    "file-loader": "^6.2.0",
     "jest": "^26.4.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2",
     "ts-jest": "^26.3.0",
     "vue-jest": "^3.0.4"
   }

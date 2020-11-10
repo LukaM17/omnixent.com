@@ -1,0 +1,42 @@
+.o-dropdown {
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 20px;
+  background-color: $background-dark;
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+  appearance: none;
+
+  .o-dropdown-background {
+    background: black;
+    opacity: 0.85;
+  }
+
+  .o-dropdown-menu {
+    background-color: $background-dark;
+    border-radius: 15px;
+    z-index: 100;
+    min-width: 13rem;
+    left: unset;
+    top: unset;
+
+    .o-dropdown-item {
+      font-size: 20;
+      font-weight: 600;
+      line-height: 3rem;
+      transition: all 100ms ease-in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      &:hover {
+        background-color: #FFFFFF30;
+      }
+      &-active {
+        background-color: $primary;
+      }
+    }
+  }
+}

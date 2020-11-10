@@ -1,4 +1,25 @@
 {
     "title": "Omnixent",
-    "wipMessage": "Omnixent Frontend made with Nuxt.js (WIP)"
+    "wipMessage": "Omnixent Frontend made with Nuxt.js (WIP)",
+    "followUs": "Follow us on Github",
+    "search": "Search",
+    "language": "Language",
+    "country": "Country",
+    "Google": "Google",
+    "Amazon": "Amazon",
+    "YouTube": "YouTube",
+    "Italy": "Italy",
+    "United States": "U.S.A.",
+    "United Kingdom": "U.K.",
+    "Germany": "Germany",
+    "Austria": "Austria",
+    "France": "France",
+    "English": "English",
+    "Italian": "Italian",
+    "French": "French",
+    "German": "German",
+    "searchExample": "e.g. Chocolate",
+    "subtitle": "tell me what people are asking about",
+    "support_us": "support us on",
+    "new_label": "New!"
 }
