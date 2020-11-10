@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
-import BaseInputWithButton from '@/components/base/BaseInputWithButton.vue'
+import InputWithButton from '@/components/base/InputWithButton.vue'
 
-describe('BaseInputWithButton', () => {
+describe('InputWithButton', () => {
   test('is a Vue instance', () => {
-    const wrapper = mount(BaseInputWithButton)
+    const wrapper = mount(InputWithButton)
     expect(wrapper.vm).toBeTruthy()
   })
   test('should detect empty strings', () => {
-    const wrapper = mount(BaseInputWithButton)
+    const wrapper = mount(InputWithButton)
     const componentInstance: any = wrapper.vm
     expect(componentInstance.isValueEmpty).toBeTruthy()
     wrapper.setData({ value: 'asd' })
@@ -16,7 +16,7 @@ describe('BaseInputWithButton', () => {
     expect(componentInstance.isValueEmpty).toBeTruthy()
   })
   test('should emit "submit" event only with non-empty value', async () => {
-    const wrapper = mount(BaseInputWithButton)
+    const wrapper = mount(InputWithButton)
     const componentInstance: any = wrapper.vm
     wrapper.setData({ value: '' })
     componentInstance.submit()

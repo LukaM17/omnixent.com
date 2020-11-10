@@ -2,16 +2,16 @@
   <div class="searchbox">
     <div class="row row-center">
       <div class="col-xs-12 col-lg-8">
-        <BaseInputWithButton @submit="startSearch" :placeholder="$t('searchExample')">
+        <InputWithButton @submit="startSearch" :placeholder="$t('searchExample')">
           <i class="fas fa-angle-right hide-on-mobile"></i>
           <p class="show-on-mobile">{{ $t('search') }}</p>
-        </BaseInputWithButton>
+        </InputWithButton>
       </div>
       <div class="col-xs-12 col-lg-4">
         <div class="row row-center list-selectors-wrapper">
           <div class="col-xs-6 col-lg-6">
             <div class="box">
-              <BaseListSelector v-model="selectedCountry" :options-list="supportedCountries" />
+              <ListSelector v-model="selectedCountry" :options-list="supportedCountries" />
               <p class="searchbox__label">
                 {{ $t('country') }}
               </p>
@@ -19,7 +19,7 @@
           </div>
           <div class="col-xs-6 col-lg-6">
             <div class="box">
-              <BaseListSelector v-model="selectedLanguage" :options-list="supportedLanguages" />
+              <ListSelector v-model="selectedLanguage" :options-list="supportedLanguages" />
               <p class="searchbox__label">
                 {{ $t('language') }}
               </p>
@@ -30,7 +30,7 @@
     </div>
     <div class="row tab-selector-wrapper">
       <div class="col-xs-12 col-lg-6">
-        <BaseTabSelector v-model="selectedService" :tab-items="availableServices" :background="false" />
+        <TabSelector v-model="selectedService" :tab-items="availableServices" :background="false" />
       </div>
     </div>
   </div>
