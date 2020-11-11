@@ -4,10 +4,39 @@
 
 <script lang="ts">
 import Home from '@/pages/Home.vue'
+import { TranslateResult } from 'vue-i18n'
 
-export default {
-  components: { Home }
-}
+import Vue from 'vue'
+export default Vue.extend({
+  components: { Home },
+
+  head () : any {
+    const i18nSeo = this.$nuxtI18nSeo()
+    return {
+      htmlAttrs: {
+        myAttribute: 'My Value',
+        ...i18nSeo.htmlAttrs
+      },
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('subtitle') as TranslateResult
+        },
+        ...i18nSeo.meta!
+      ],
+      link: [
+        {
+          hid: 'apple-touch-icon',
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png'
+        },
+        ...i18nSeo.link!
+      ]
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
