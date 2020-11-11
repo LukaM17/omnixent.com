@@ -6,6 +6,9 @@
         <h2>{{ $t('subtitle') }}</h2>
       </div>
       <SearchBox @searchStatus="searchResult" />
+      <h3 v-if="inProgress">Searching...</h3>
+      <h3 v-if="error">Error fetching Omnixent API, please retry!</h3>
+      <ResultsBox v-if="searchResults" :results="searchResults"/>
     </div>
   </div>
 </template>
@@ -13,11 +16,28 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
+  data () {
+    return {
+      inProgress: false,
+      error: false,
+      searchResults: null
+    }
+  },
   methods: {
     searchResult (status: Promise<any>): void {
+      this.searchResults = null
+      this.inProgress = true
+      this.error = false
       status
-        .then(res => console.log(res.data.result))
-        .catch(err => console.log(err))
+        .then((res) => {
+          console.log(res.data.result)
+          this.searchResults = res.data.result
+        })
+        .catch((err) => {
+          console.log(err)
+          this.error = true
+        })
+        .finally(() => { this.inProgress = false })
     }
   }
 })
@@ -42,6 +62,9 @@ h2 {
   color: white;
   font-weight: 700;
   font-size: 5vw;
+}
+h3 {
+  color: white;
 }
 .main-container {
   margin: 0 auto;

@@ -155,6 +155,7 @@ export default Vue.extend({
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
   width: 100%;
+  margin-bottom: 3rem;
 
   &__label {
     height: 20px;

@@ -15,7 +15,8 @@
             </o-button>
             <span class="hide-on-mobile ">
               <o-button class="top-menu__cta top-menu__cta--new">
-                {{$t('new_label')}} 🎉
+                <!-- {{$t('new_label')}} 🎉 -->
+                WIP 👨🏻‍💻
               </o-button>
             </span>
           </div>
