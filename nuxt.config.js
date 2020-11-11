@@ -50,9 +50,23 @@ export default {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
-        locales: ['en'],
+        strategy: 'prefix_except_default',
+        locales: [
+          {
+            code: 'en',
+            name: 'English',
+            icon: '🇬🇧',
+            iso: 'en-US'
+          },
+          {
+            code: 'it',
+            name: 'Italiano',
+            icon: '🇮🇹',
+            iso: 'it-IT'
+          }
+        ],
         defaultLocale: 'en',
+        seo: true,
         vueI18n: {
           fallbackLocale: 'en',
           messages

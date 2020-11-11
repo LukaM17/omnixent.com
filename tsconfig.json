@@ -28,7 +28,9 @@
       "@types/node",
       "@types/mocha",
       "@types/jest",
-      "@nuxt/types"
+      "@nuxt/types",
+      "@nuxt/types",
+      "nuxt-i18n"
     ]
   },
   "exclude": [
