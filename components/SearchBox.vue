@@ -130,6 +130,8 @@ export default Vue.extend({
     startSearch (query: string): void {
       if (query !== '') {
         // emit the search status
+        console.log('searching for ...  :')
+        console.log('query: ' + query)
         this.$emit('searchStatus', this.$omnixentClient.search(query, this.selectedService, this.selectedLanguage, this.selectedCountry))
       }
     }
