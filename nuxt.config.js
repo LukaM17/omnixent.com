@@ -3,7 +3,7 @@ import messages from './i18n/messages'
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'server',
-
+  ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'omnixent-front',
@@ -38,14 +38,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // [
-    //   '@oruga-ui/oruga/nuxt',
-    //   {
-    //     button: {
-    //       override: true
-    //     }
-    //   }
-    // ],
     '@nuxtjs/style-resources',
     [
       'nuxt-i18n',
@@ -58,9 +50,15 @@ export default {
           messages
         }
       }
-    ]
+    ],
+    '@nuxtjs/robots'
   ],
-
+  robots: [
+    {
+      UserAgent: '*',
+      Disallow: () => process.env.NUXT_ENV_PRODUCTION ? '' : '/'
+    }
+  ],
   styleResources: {
     scss: [
       '~/assets/scss/variables.scss',
@@ -76,7 +74,5 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {
-
-  }
+  build: {}
 }

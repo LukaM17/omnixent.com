@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
-    "build": "nuxt-ts build --spa",
+    "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
@@ -15,6 +15,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/robots": "^2.4.2",
     "@oruga-ui/oruga": "^0.2.2",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
