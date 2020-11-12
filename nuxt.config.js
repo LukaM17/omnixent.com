@@ -1,6 +1,4 @@
 import messages from './i18n/messages'
-import fs from 'fs'
-import path from 'path'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -40,14 +38,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // [
-    //   '@oruga-ui/oruga/nuxt',
-    //   {
-    //     button: {
-    //       override: true
-    //     }
-    //   }
-    // ],
     '@nuxtjs/style-resources',
     [
       'nuxt-i18n',
@@ -61,6 +51,13 @@ export default {
         }
       }
     ],
+    '@nuxtjs/robots'
+  ],
+  robots: [
+    {
+      UserAgent: '*',
+      Disallow: () => process.env.NUXT_ENV_PRODUCTION ? '' : '/'
+    }
   ],
   styleResources: {
     scss: [
@@ -77,22 +74,5 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
-  hooks: {
-    generate: {
-      done(builder) {
-        const destRobots = path.join(
-          builder.nuxt.options.generate.dir,
-          'robots.txt'
-        )
-        const srcRobots = path.join(
-          builder.nuxt.options.dir.static,
-          process.env.NUXT_ENV_PRODUCTION ? 'robots-prod.txt' : 'robots-dev.txt'
-        )
-        console.log(srcRobots)
-        console.log(destRobots)
-        fs.copyFileSync(srcRobots, destRobots)
-      }
-    }
-  }
+  build: {}
 }
