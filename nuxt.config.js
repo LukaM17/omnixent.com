@@ -1,9 +1,11 @@
 import messages from './i18n/messages'
+import fs from 'fs'
+import path from 'path'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'server',
-
+  ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'omnixent-front',
@@ -58,9 +60,8 @@ export default {
           messages
         }
       }
-    ]
+    ],
   ],
-
   styleResources: {
     scss: [
       '~/assets/scss/variables.scss',
@@ -76,7 +77,22 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {
-
+  build: {},
+  hooks: {
+    generate: {
+      done(builder) {
+        const destRobots = path.join(
+          builder.nuxt.options.generate.dir,
+          'robots.txt'
+        )
+        const srcRobots = path.join(
+          builder.nuxt.options.dir.static,
+          process.env.NUXT_ENV_PRODUCTION ? 'robots-prod.txt' : 'robots-dev.txt'
+        )
+        console.log(srcRobots)
+        console.log(destRobots)
+        fs.copyFileSync(srcRobots, destRobots)
+      }
+    }
   }
 }
