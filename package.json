@@ -13,7 +13,9 @@
     "ci": "npm run lint && npm run test"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/robots": "^2.4.2",
     "@oruga-ui/oruga": "^0.2.2",

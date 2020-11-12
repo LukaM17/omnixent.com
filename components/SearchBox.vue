@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="row tab-selector-wrapper">
-      <div class="col-xs-12 col-lg-6">
+      <div class="col-xs-12 col-lg-8">
         <TabSelector v-model="selectedService" :tab-items="availableServices" :background="false" />
       </div>
     </div>
@@ -69,6 +69,12 @@ export default Vue.extend({
           text: this.$t('Amazon') as TranslateResult,
           iconFamily: 'fab',
           icon: 'fa-amazon'
+        },
+        {
+          value: 'duckduckgo',
+          text: this.$t('DDG') as TranslateResult,
+          iconFamily: 'fab',
+          icon: 'fa-duckduckgo'
         }
       ],
       selectedService: 'google',
