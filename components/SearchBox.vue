@@ -2,8 +2,8 @@
   <div class="searchbox">
     <div class="row row-center">
       <div class="col-xs-12 col-lg-8">
-        <InputWithButton @submit="startSearch" :placeholder="$t('searchExample')">
-          <i class="fas fa-angle-right hide-on-mobile"></i>
+        <InputWithButton :placeholder="$t('searchExample')" @submit="startSearch">
+          <i class="fas fa-angle-right hide-on-mobile" />
           <p class="show-on-mobile">{{ $t('search') }}</p>
         </InputWithButton>
       </div>

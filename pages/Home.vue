@@ -15,6 +15,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapMutations } from 'vuex'
+
 export default Vue.extend({
   data () {
     return {
@@ -24,17 +26,19 @@ export default Vue.extend({
     }
   },
   methods: {
+    ...mapMutations({
+      saveResults: 'addResult'
+    }),
     searchResult (status: Promise<any>): void {
       this.searchResults = null
       this.inProgress = true
       this.error = false
       status
         .then((res) => {
-          console.log(res.data.result)
-          this.searchResults = res.data.result
+          this.saveResults(res.data.result)
         })
         .catch((err) => {
-          console.log(err)
+          console.error(err)
           this.error = true
         })
         .finally(() => { this.inProgress = false })
