@@ -50,6 +50,10 @@ export default {
     [
       'nuxt-i18n',
       {
+        detectBrowserLanguage: {
+          useCookie: true,
+          alwaysRedirect: true
+        },
         strategy: 'prefix_except_default',
         locales: [
           {
