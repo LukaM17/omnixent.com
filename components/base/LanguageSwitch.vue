@@ -3,8 +3,7 @@
     <o-dropdown
       :scrollable="false"
       aria-role="list"
-      class="languageswitch"
-      expanded>
+      class="languageswitch">
       <o-button type="button" slot="trigger" rootClass="languageswitch__btn">
         <template>
           <span>{{ currentLocale.icon }}</span>
@@ -37,12 +36,19 @@ export default Vue.extend({
 <style lang="scss" scoped>
 
 .languageswitch {
-  width: 4rem;
   text-align: center;
+  width: 5rem;
+  height: 4rem;
+  @media screen and (max-width: $tablet-breakpoint) {
+    margin-right: 1rem;
+  }
   &__btn {
     background-color: $background-dark;
+    width: 100%;
   }
   &__menuitem {
+    width: 5rem;
+    height: 4rem;
     a {
       text-decoration: none;
       width: 100%;
