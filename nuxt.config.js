@@ -6,14 +6,49 @@ export default {
   ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'omnixent-front',
+    title: 'Omnixent',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
+      {
+        name: 'msapplication-TileColor',
+        content: '#da532c'
+      },
+      {
+        name: 'theme-color',
+        content: '#ffffff'
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        hid: 'apple-touch-icon',
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      },
+      {
+        type: 'image/png',
+        rel: 'icon',
+        sizes: '32x32',
+        href: '/favicon-32x32.png'
+      },
+      {
+        type: 'image/png',
+        rel: 'icon',
+        sizes: '16x16',
+        href: '/favicon-16x16.png'
+      },
+      {
+        rel: 'manifest',
+        href: '/site.webmanifest'
+      },
+      {
+        rel: 'mask-icon',
+        href: '/safari-pinned-tab.svg',
+        color: '#5bbad5'
+      }
     ]
   },
 
@@ -43,9 +78,27 @@ export default {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
-        locales: ['en'],
+        detectBrowserLanguage: {
+          useCookie: true,
+          alwaysRedirect: true
+        },
+        strategy: 'prefix_except_default',
+        locales: [
+          {
+            code: 'en',
+            name: 'English',
+            icon: '🇬🇧',
+            iso: 'en-US'
+          },
+          {
+            code: 'it',
+            name: 'Italiano',
+            icon: '🇮🇹',
+            iso: 'it-IT'
+          }
+        ],
         defaultLocale: 'en',
+        seo: true,
         vueI18n: {
           fallbackLocale: 'en',
           messages

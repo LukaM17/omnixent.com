@@ -56,6 +56,13 @@ export default Vue.extend({
 <style lang="scss" scoped>
 
 .listselector {
+
+  ::v-deep .o-dropdown-menu {
+    min-width: 13rem !important;
+    left: unset !important;
+    top: unset !important;
+  }
+
   &__btn {
     background-color: $background-dark;
     width: 100%;
@@ -63,9 +70,6 @@ export default Vue.extend({
   &__menuitem {
     &__icon {
       margin: 0 10px 0 0;
-    }
-    &__text {
-
     }
   }
 }
