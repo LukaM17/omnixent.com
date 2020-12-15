@@ -29,9 +29,10 @@
       </div>
     </div>
     <div class="row tab-selector-wrapper">
-      <div class="col-xs-12 col-lg-6">
+      <div class="col-xs-12 col-lg-8">
         <TabSelector v-model="selectedService" :tab-items="availableServices" :background="false" />
       </div>
+      <div class="col-lg-4 end_quote_wrapper show-only-on-desktop">"</div>
     </div>
   </div>
 </template>
@@ -69,6 +70,12 @@ export default Vue.extend({
           text: this.$t('Amazon') as TranslateResult,
           iconFamily: 'fab',
           icon: 'fa-amazon'
+        },
+        {
+          value: 'duckduckgo',
+          text: this.$t('DDG') as TranslateResult,
+          iconFamily: 'fab',
+          icon: 'fa-duckduckgo'
         }
       ],
       selectedService: 'google',
@@ -149,6 +156,14 @@ export default Vue.extend({
   @media screen and (max-width: $desktop-breakpoint) {
     margin-top: 2rem;
   }
+}
+.end_quote_wrapper {
+  text-align: center;
+  font-style: oblique;
+  color: $secondary;
+  font-weight: 700;
+  font-size: 6rem;
+  margin-top: -1rem;
 }
 .searchbox {
   display: grid;

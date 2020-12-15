@@ -19,6 +19,7 @@
                 WIP 👨🏻‍💻
               </o-button>
             </span>
+            <LanguageSwitch />
           </div>
         </div>
       </div>

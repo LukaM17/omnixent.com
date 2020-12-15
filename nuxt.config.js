@@ -6,14 +6,49 @@ export default {
   ssr: false,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'omnixent-front',
+    title: 'Omnixent',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
+      {
+        name: 'msapplication-TileColor',
+        content: '#da532c'
+      },
+      {
+        name: 'theme-color',
+        content: '#ffffff'
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        hid: 'apple-touch-icon',
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      },
+      {
+        type: 'image/png',
+        rel: 'icon',
+        sizes: '32x32',
+        href: '/favicon-32x32.png'
+      },
+      {
+        type: 'image/png',
+        rel: 'icon',
+        sizes: '16x16',
+        href: '/favicon-16x16.png'
+      },
+      {
+        rel: 'manifest',
+        href: '/site.webmanifest'
+      },
+      {
+        rel: 'mask-icon',
+        href: '/safari-pinned-tab.svg',
+        color: '#5bbad5'
+      }
     ]
   },
 
@@ -24,7 +59,8 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/client.ts' },
-    { src: '~plugins/oruga.ts' }
+    { src: '~plugins/oruga.ts' },
+    { src: '~plugins/fa.ts' }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -42,9 +78,27 @@ export default {
     [
       'nuxt-i18n',
       {
-        strategy: 'no_prefix',
-        locales: ['en'],
+        detectBrowserLanguage: {
+          useCookie: true,
+          alwaysRedirect: true
+        },
+        strategy: 'prefix_except_default',
+        locales: [
+          {
+            code: 'en',
+            name: 'English',
+            icon: '🇬🇧',
+            iso: 'en-US'
+          },
+          {
+            code: 'it',
+            name: 'Italiano',
+            icon: '🇮🇹',
+            iso: 'it-IT'
+          }
+        ],
         defaultLocale: 'en',
+        seo: true,
         vueI18n: {
           fallbackLocale: 'en',
           messages
@@ -62,9 +116,6 @@ export default {
   styleResources: {
     scss: [
       '~/assets/scss/variables.scss',
-      '@fortawesome/fontawesome-free/scss/fontawesome.scss',
-      '@fortawesome/fontawesome-free/scss/solid.scss',
-      '@fortawesome/fontawesome-free/scss/brands.scss',
       'flexboxgrid/dist/flexboxgrid.min.css',
       '~/assets/scss/globals.scss',
       '@oruga-ui/oruga/src/scss/oruga-lite.scss',
