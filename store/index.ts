@@ -6,16 +6,30 @@ interface resultFormat {
   term: string,
   uuid: string
 }
-// state
-const state = () => ({
-  result: null
-})
-// mutations
-const mutations = {
-  addResult (state: any, ciao: resultFormat) {
-    state.result = ciao
+
+const getDefaultState = () => {
+  return {
+    country: null,
+    language: null,
+    result: [],
+    service: null,
+    term: null,
+    uuid: null
   }
 }
-
-// esports
-export { state, mutations }
+// state
+export const state = getDefaultState()
+// mutations
+export const mutations = {
+  addResult (state: any, searchResult: resultFormat) {
+    state.country = searchResult.country
+    state.language = searchResult.language
+    state.term = searchResult.term
+    state.result = searchResult.result
+    state.service = searchResult.service
+    state.uuid = searchResult.uuid
+  },
+  resetResult (state: any) {
+    Object.assign(state, getDefaultState())
+  }
+}

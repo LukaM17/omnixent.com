@@ -8,34 +8,29 @@
       <SearchBox @searchStatus="searchResult" />
       <h3 v-if="inProgress">Searching...</h3>
       <h3 v-if="error">Error fetching Omnixent API, please retry!</h3>
-      <ResultsBox v-if="searchResults" :results="searchResults"/>
+      <ResultsBox/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapMutations } from 'vuex'
-
 export default Vue.extend({
   data () {
     return {
       inProgress: false,
-      error: false,
-      searchResults: null
+      error: false
     }
   },
   methods: {
-    ...mapMutations({
-      saveResults: 'addResult'
-    }),
     searchResult (status: Promise<any>): void {
-      this.searchResults = null
       this.inProgress = true
       this.error = false
+      this.$store.commit('resetResult')
       status
         .then((res) => {
-          this.saveResults(res.data.result)
+          console.log(res.data.result)
+          this.$store.commit('addResult', res.data.result)
         })
         .catch((err) => {
           console.error(err)
