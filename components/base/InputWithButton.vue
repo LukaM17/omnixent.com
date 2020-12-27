@@ -77,6 +77,9 @@ export default Vue.extend({
     &:focus-within {
       outline: none;
     }
+    &:disabled {
+      cursor: not-allowed;
+    }
 
     @media screen and (max-width: $mobile-breakpoint) {
       border: none;
