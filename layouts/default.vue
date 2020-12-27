@@ -3,15 +3,16 @@
     <div class="top-menu">
       <div class="top-menu__wrapper">
         <div class="top-menu__item">
-          <img class="top-menu__logo" src="/img/omnixent-logo.svg" />
+          <img class="top-menu__logo" src="/img/omnixent-logo.svg">
         </div>
         <div class="top-menu__item">
           <div class="top-menu__buttons-wrapper">
-            <span class="hide-on-mobile">{{$t('support_us')}}</span>
+            <span class="hide-on-mobile">{{ $t('support_us') }}</span>
             <o-button
               class="top-menu__cta top-menu__cta--github"
-              @click="goToGithub()">
-              <i class="fab fa-github"></i> GitHub
+              @click="goToGithub()"
+            >
+              <i class="fab fa-github" /> GitHub
             </o-button>
             <span class="hide-on-mobile ">
               <o-button class="top-menu__cta top-menu__cta--new">
@@ -41,8 +42,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+* {
+  font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
