@@ -6,10 +6,12 @@
       size="large"
       class="tab-selector__btn"
       :inverted="selectedTab !== index"
-      invertedClass="tab-selector__btn--inverted"
+      :disabled="disabled"
+      inverted-class="tab-selector__btn--inverted"
+      disabled-class="tab-selector__btn--disabled"
       @click="changeTab(index)"
     >
-      <span><i :class="[item.iconFamily, item.icon]" class="tab-selector__icon-label"></i><span class="hide-on-mobile">{{ item.text }}</span></span>
+      <span><i :class="[item.iconFamily, item.icon]" class="tab-selector__icon-label" /><span class="hide-on-mobile">{{ item.text }}</span></span>
     </o-button>
   </div>
 </template>
@@ -33,6 +35,10 @@ export default Vue.extend({
     tabItems: {
       type: Array as () => Array<Item>,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -42,9 +48,11 @@ export default Vue.extend({
   },
   methods: {
     changeTab (index: number): void {
-      this.selectedTab = index
-      // event emission when change the selected tab
-      this.$emit('input', this.tabItems[index].value)
+      if (!this.disabled) {
+        this.selectedTab = index
+        // event emission when change the selected tab
+        this.$emit('input', this.tabItems[index].value)
+      }
     }
   }
 })
@@ -74,6 +82,9 @@ export default Vue.extend({
     &--inverted {
       background-color: $background-dark;
       color: white;
+    }
+    &--disabled {
+      cursor: not-allowed;
     }
   }
 

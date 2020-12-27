@@ -1,12 +1,15 @@
 <template>
   <o-dropdown
-    :scrollable="true"
-    @change="onChange"
     v-model="selectedOption"
+    :scrollable="true"
     aria-role="list"
     class="listselector"
-    expanded>
-    <o-button type="button" slot="trigger" rootClass="listselector__btn">
+    :disabled="disabled"
+    disabled-class="listselector--disabled"
+    expanded
+    @change="onChange"
+  >
+    <o-button slot="trigger" type="button" root-class="listselector__btn">
       <template>
         <span>{{ selectedOption.icon ? selectedOption.icon : selectedOption.text }}</span>
       </template>
@@ -15,7 +18,7 @@
       <span v-if="menu.icon" class="listselector__menuitem__icon">
         {{ menu.icon }}
       </span>
-      <span class="listselector__menuitem__text">{{menu.text}}</span>
+      <span class="listselector__menuitem__text">{{ menu.text }}</span>
     </o-dropdown-item>
   </o-dropdown>
 </template>
@@ -38,6 +41,10 @@ export default Vue.extend({
     optionsList: {
       type: Array as () => Array<Item>,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -61,6 +68,10 @@ export default Vue.extend({
     min-width: 13rem !important;
     left: unset !important;
     top: unset !important;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
   }
 
   &__btn {

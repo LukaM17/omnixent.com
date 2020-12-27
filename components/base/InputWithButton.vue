@@ -1,21 +1,24 @@
 <template>
   <div class="inputwithbtn">
     <o-input
-      v-model="value"
-      inputClass="inputwithbtn__input"
       ref="inputTerm"
+      v-model="value"
+      input-class="inputwithbtn__input"
       type="text"
       :class="{'inputwithbtn__input--highlight': isReadyToSend && !this.isValueEmpty }"
       :placeholder="placeholder"
-      @keyup.native.enter="submit"></o-input>
+      :disabled="disabled"
+      @keyup.native.enter="submit"
+    />
     <o-button
-      :disabled="isValueEmpty"
-      disabledClass="inputwithbtn__btn--disabled"
+      :disabled="isValueEmpty || disabled"
+      disabled-class="inputwithbtn__btn--disabled"
       class="inputwithbtn__btn"
       :class="{'inputwithbtn__btn--highlight': isReadyToSend && !this.isValueEmpty}"
       @click="submit"
       @mouseover.self="isReadyToSend = true"
-      @mouseleave.self="isReadyToSend = false">
+      @mouseleave.self="isReadyToSend = false"
+    >
       <slot />
     </o-button>
   </div>
@@ -29,6 +32,10 @@ export default Vue.extend({
     placeholder: {
       type: String,
       default: 'placeholder'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

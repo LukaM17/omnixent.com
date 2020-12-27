@@ -2,16 +2,18 @@
   <div class="searchbox">
     <div class="row row-center">
       <div class="col-xs-12 col-lg-8">
-        <InputWithButton @submit="startSearch" :placeholder="$t('searchExample')">
-          <i class="fas fa-angle-right hide-on-mobile"></i>
-          <p class="show-on-mobile">{{ $t('search') }}</p>
+        <InputWithButton :placeholder="$t('searchExample')" :disabled="inProgress" @submit="startSearch">
+          <i class="fas fa-angle-right hide-on-mobile" />
+          <p class="show-on-mobile">
+            {{ $t('search') }}
+          </p>
         </InputWithButton>
       </div>
       <div class="col-xs-12 col-lg-4">
         <div class="row row-center list-selectors-wrapper">
           <div class="col-xs-6 col-lg-6">
             <div class="box">
-              <ListSelector v-model="selectedCountry" :options-list="supportedCountries" />
+              <ListSelector v-model="selectedCountry" :disabled="inProgress" :options-list="supportedCountries" />
               <p class="searchbox__label">
                 {{ $t('country') }}
               </p>
@@ -19,7 +21,7 @@
           </div>
           <div class="col-xs-6 col-lg-6">
             <div class="box">
-              <ListSelector v-model="selectedLanguage" :options-list="supportedLanguages" />
+              <ListSelector v-model="selectedLanguage" :disabled="inProgress" :options-list="supportedLanguages" />
               <p class="searchbox__label">
                 {{ $t('language') }}
               </p>
@@ -30,9 +32,11 @@
     </div>
     <div class="row tab-selector-wrapper">
       <div class="col-xs-12 col-lg-8">
-        <TabSelector v-model="selectedService" :tab-items="availableServices" :background="false" />
+        <TabSelector v-model="selectedService" :disabled="inProgress" :tab-items="availableServices" :background="false" />
       </div>
-      <div class="col-lg-4 end_quote_wrapper show-only-on-desktop">"</div>
+      <div class="col-lg-4 end_quote_wrapper show-only-on-desktop">
+        "
+      </div>
     </div>
   </div>
 </template>
@@ -47,6 +51,10 @@ export default Vue.extend({
     width: {
       type: [Number, String],
       default: 100
+    },
+    inProgress: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

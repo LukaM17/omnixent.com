@@ -5,10 +5,14 @@
         <h1>{{ $t('title') }}</h1>
         <h2>{{ $t('subtitle') }}</h2>
       </div>
-      <SearchBox @searchStatus="searchResult" />
-      <h3 v-if="inProgress">Searching...</h3>
-      <h3 v-if="error">Error fetching Omnixent API, please retry!</h3>
-      <ResultsBox v-if="searchResults" :results="searchResults"/>
+      <SearchBox :in-progress="inProgress" @searchStatus="searchResult" />
+      <h3 v-if="inProgress">
+        Searching...
+      </h3>
+      <h3 v-if="error">
+        Error fetching Omnixent API, please retry!
+      </h3>
+      <ResultsBox v-if="searchResults" :results="searchResults" />
     </div>
   </div>
 </template>
